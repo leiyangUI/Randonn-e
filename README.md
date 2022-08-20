@@ -1,2 +1,2 @@
-# Randonn-e
+# Randonnee
 First projet SASS
