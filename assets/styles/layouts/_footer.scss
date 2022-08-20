@@ -1,0 +1,108 @@
+footer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 85%;
+  margin: 0px auto;
+  background: $grey1;
+  backdrop-filter: blur(10px);
+  // min-height: 600px;
+
+  @media screen and (max-width : 900px){
+    grid-template-columns: 1fr;
+  }
+
+  form,
+  .infos-contact {
+    display: grid;
+    gap: 18px;
+  }
+  form {
+    //indiquez chaque line qu'il fais/ 1er line:18px de hauteur, 2eme line: 45px, 3eme: 18px, 4eme:45pxx, 5eme:18px, 6eme:200px , 7eme:1fr(tout ce aui reste)
+    grid-template-rows: 18px 45px 18px 45px 18px 200px 1fr;
+    padding: 60px 50px;
+
+    label {
+      display: flex;
+      align-items: flex-end; //pour aligner left
+      @include title;
+      color: $grey3;
+    }
+    input,
+    textarea {
+      background: none;
+      border-radius: 5px;
+      border: 1px solid $grey3;
+      resize: none;
+    }
+    .submit-container {
+      display: flex;
+      align-items: flex-end; //pour aligner ver le bas
+
+      .btn {
+        color: $grey3;
+        border: 4px double $grey3;
+      }
+    }
+  }
+
+  .infos-contact {
+    border-left: 1px solid $grey1;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+
+    div {
+      border-bottom: 1px solid $grey1;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 30% 70%;
+      align-items: center;
+      text-align: left;
+      padding: 60px 50px;
+      
+      @media screen and (max-width : 900px){
+        grid-template-columns: 45% 55%;
+      }
+      &:nth-child(1){
+        @media screen and (max-width : 900px){
+          border-top: 1px solid $grey1;
+          grid-template-columns: 45% 55%;
+        }
+    }
+
+      h3 {
+        @include title;
+        font-size: 0.7rem;
+        padding-left: 40px;
+        color: $grey3;
+      }
+
+      p {
+        font-size: 0.9rem;
+        line-height: 26px;
+        color: $grey1;
+      }
+    }
+    .social ul {
+      // display: grid;
+      // grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      li {
+        border: 1px solid $grey1;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+        transition: 0.2s;
+
+        &:hover {
+          background: $white1;
+          scale: 1.2;
+        }
+      }
+    }
+  }
+}

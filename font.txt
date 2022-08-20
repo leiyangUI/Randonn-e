@@ -1,2 +1,7 @@
 Inter-ExtraBold
+font-family: 'Inter', sans-serif;
+
 MerriweatherLight
+font-family: 'Merriweather Sans', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Merriweather+Sans:wght@300&display=swap');

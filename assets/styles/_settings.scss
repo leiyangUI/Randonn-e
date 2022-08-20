@@ -1,0 +1,94 @@
+//I definir la police
+
+@font-face {
+  font-family: "inter-bold";
+  src: url(../font/Inter/static/Inter-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "merri";
+  src: url(../font/Merriweather_Sans/static/MerriweatherSans-Light.ttf);
+}
+
+$font1: inter-bold, sans-serif;
+$font2: merri, serif;
+
+//II definir les coleurs
+$black1: rgb(17, 17, 17);
+$white1: rgb(243, 243, 243);
+$white2: rgba(243, 243, 243, 0.234);
+$grey1: rgba(233, 233, 233, 0.43);
+$grey2: rgb(209, 209, 209);
+$grey3: rgb(105, 105, 105);
+
+//definir tous ce qui en commun
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@mixin title {
+  font-family: $font1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:visited {
+  color: $white1;
+}
+
+body {
+  background: url(../img/bg.jpg) fixed center/cover;
+  text-align: center;
+  font-family: $font2;
+  min-width: 1300px;
+  margin: 0 auto;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: $black1;
+    opacity: 0.9;
+    animation: animBefore 1.5s 0.15s ease forwards;
+    transition: 0.3s;
+
+    @keyframes animBefore {
+      to {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.btn {
+  background: none;
+  border: 4px double $black1;
+  height: 45px;
+  width: 170px;
+  font-size: 0.75rem;
+  letter-spacing: 0.2vh;
+  cursor: pointer;
+  transition: 0.1s;
+  &:hover {
+    transform: scale(1.05);
+    color: $white1;
+    border: 4px double $grey1;
+    border-radius: 6px;
+  }
+
+  // appler le mixin title avec @inclue
+  @include title;
+}

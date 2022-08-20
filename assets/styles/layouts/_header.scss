@@ -1,0 +1,140 @@
+header {
+  min-height: 100vh;
+  position: relative;
+  color: $white1;
+
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    //animation text remonte
+    opacity: 0;
+    transform: translateY(40px);
+    animation: headerAnim 1.5s forwards;
+
+    @keyframes headerAnim {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    h1 {
+      @include title;
+      font-size: 4rem;
+      letter-spacing: 6px;
+
+      @media screen and (max-width: 720px) {
+        font-size: 2rem;
+      }
+    }
+    p {
+      margin: 40px auto 60px;
+      font-style: italic;
+      width: 85%;
+    }
+
+    span {
+      border: 2px solid $white1;
+      border-radius: 50px;
+      height: 60px;
+      width: 60px;
+      font-size: 1.4rem;
+      transition: 0.2s;
+
+      &:hover {
+        background: $white1;
+      }
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        transition: 0.2s;
+
+        &:hover {
+          color: $black1;
+        }
+      }
+    }
+  }
+  nav {
+    backdrop-filter: blur(10px);
+    position: absolute;
+    bottom: 0;
+    width: 85%;
+    background: $white2;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 65px;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include title;
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        cursor: pointer;
+      }
+    }
+    .nav-left {
+      //desactiver le frist-child effect like hover, faut faire avec son parent direct
+      &:hover li:not(:hover) {
+        background: none;
+        color: $white1;
+      }
+
+      li {
+        font-size: 0.7rem;
+        padding: 0 24px;
+
+        @media screen and (max-width: 720px) {
+          font-size: 0.5rem;
+        }
+
+        &:first-child {
+          background: $grey1;
+          color: $black1;
+        }
+        &:hover {
+          background: $grey1;
+          color: $black1;
+        }
+      }
+    }
+    .nav-right {
+      font-size: 1.1rem;
+      //ces 3 parametre en dessous, c'est pour plus besoin de travailler avec mediaquery
+      min-width: 100px;
+      width: 25%;
+      min-width: 300px;
+      margin: 10px;
+
+      @media screen and (max-width: 720px) {
+        display: none;
+      }
+
+      li {
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.8);
+        }
+      }
+    }
+  }
+}
